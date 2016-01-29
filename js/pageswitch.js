@@ -1,4 +1,7 @@
 (function ($) {
+    /*
+     * 页面滚动代码主体
+     * */
     var defaults = {
         'container': '#container',//容器
         'sections': '.section',//子容器
@@ -96,7 +99,7 @@
     //页面滚动事件
     function scrollPage(element) {
         $(".nav li a.active").removeClass('active');
-        $(".nav li a[index='"+iIndex+"']").addClass('active');
+        $(".nav li a[index='" + iIndex + "']").addClass('active');
         var dest = element.position();
         if (typeof dest === 'undefined') {
             return;
@@ -108,7 +111,6 @@
 
     $(".section").on("mousewheel DOMMouseScroll", MouseWheelHandler);
     function MouseWheelHandler(e) {
-        $(".section").off("mousewheel DOMMouseScroll", MouseWheelHandler);
         e.preventDefault();
         var value = e.originalEvent.wheelDelta || -e.originalEvent.detail;
         console.log(value);
@@ -117,14 +119,11 @@
             if (delta < 0) {
                 console.log('Down');
                 SP.moveSectionDown();
-            } else{
+            } else {
                 console.log('Up');
                 SP.moveSectionUp();
             }
         }
-        setTimeout(function(){
-            $(".section").on("mousewheel DOMMouseScroll", MouseWheelHandler);
-        },opts.duration);
     }
 
     //横向布局初始化
@@ -309,22 +308,5 @@
         }
     }
 
-    //自定义 隐藏loading页面
-    var load = $('.loading_wrap');
-    load.on("mousewheel DOMMouseScroll", null);
-    var hide_load = setTimeout(function () {
-        load.animate({
-                "height": 0
-            },
-            500, function () {
-                /* stuff to do after animation is complete */
-                load.css({
-                    'display': 'none'
-                });
-
-                clearTimeout(hide_load);
-
-            });
-    }, 500);
 
 })(jQuery);
