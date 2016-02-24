@@ -172,6 +172,9 @@
             transition = ["-webkit-transition", "-ms-transition", "-moz-transition", "transition"];
 
         canScroll = false;
+        setTimeout(function(){
+            canScroll = true;
+        },opts.duration+600);
         if (isSuportCss(transform) && isSuportCss(transition)) {
             var traslate = "";
             if (opts.direction == "horizontal") {
@@ -184,12 +187,12 @@
                 "transform": "translate3d(" + traslate + ")"
             });
             container.on("webkitTransitionEnd msTransitionend mozTransitionend transitionend", function () {
-                canScroll = true;
+                //canScroll = true;
             });
         } else {
             var cssObj = (opts.direction == "horizontal") ? {left: -dest.left} : {top: -dest.top};
             container.animate(cssObj, opts.duration, function () {
-                canScroll = true;
+                //canScroll = true;
             });
         }
         element.addClass("active").siblings().removeClass("active");
