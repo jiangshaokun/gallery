@@ -1,0 +1,90 @@
+@imgW: 187.5px;
+@imgH: 313.5px;
+@titleH: 30px;
+@itemPadding: 20px;
+
+.stage {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  perspective: 1800px;
+  overflow: hidden;
+}
+
+.project-item {
+  position: absolute;
+  padding: @itemPadding;
+  width: @imgW + @itemPadding*2;
+  height: @imgH + @titleH + @itemPadding*2;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  text-align: center;
+  transition: transform .5s,left .5s,top .5s;
+  transform-origin: 0 50% 0;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+  margin: 0;
+  cursor: pointer;
+}
+
+.project-item.is-inverse {
+  transform: translate(@imgW + @itemPadding*2)rotateY(180deg);
+}
+
+.project-title{
+  font-size: 16px;
+  line-height: 2.5em;
+  padding: 0;
+  margin: 0;
+}
+
+.project-photo {
+  width: @imgW;
+  height: @imgH;
+  float: left;
+}
+// .project-item 不能设置超出隐藏, .project-back要translateZ(1px)正面时离用户更远,反面离用户更近
+.project-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg)translateZ(1px);
+  background-color: #fff;
+  text-align: left;
+  padding: .5em;
+  box-sizing: border-box;
+  p {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: auto;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.btn-switch-wrap {
+  text-align: center;
+  margin-bottom: .5em;
+}
+
+.btn-switch {
+  display: inline-block;
+  font-size: 14px;
+  font-family: 'Roboto Mono', Monaco, courier, monospace;
+  color: #fff;
+  background-color: #4fc08d;
+  border: 0;
+  border-bottom: 2px solid #3aa373;
+  padding: 6px 10px;
+  border-radius: 4px;
+  &:hover{
+    cursor: pointer;
+  }
+  &:active{
+    background-color: #42ab7b;
+  }
+}
