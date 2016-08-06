@@ -24,7 +24,7 @@ projectData = ((dataObj) => {
 
 //随机生成一个值
 function getRangeRandom(low, high) {
-  return Math.ceil(Math.random() * (high - low) + low);
+  return Math.ceil(Math.random() * (high - low) + low)
 }
 
 class Project extends React.Component {
@@ -288,7 +288,7 @@ function select(state) {
   return {
     arrangeType: state.arrangeType,
     projectStateArr: state.projectStateArr
-  };
+  }
 }
 
 const ConnectedProject = connect(select)(Project)

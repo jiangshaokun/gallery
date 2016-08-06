@@ -1,6 +1,6 @@
 require('styles/Resume.less')
 
-import React from 'react';
+import React from 'react'
 
 class Resume extends React.Component {
   render() {
@@ -63,10 +63,10 @@ class Resume extends React.Component {
         </div>
 
       </section>
-    );
+    )
   }
 }
 
-Resume.defaultProps = {};
+Resume.defaultProps = {}
 
-export default Resume;
+export default Resume

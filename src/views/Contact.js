@@ -19,6 +19,6 @@ class Contact extends React.Component {
 }
 
 Contact.defaultProps = {
-};
+}
 
-export default Contact;
+export default Contact

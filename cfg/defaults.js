@@ -1,7 +1,7 @@
-'use strict';
-const path = require('path');
-const srcPath = path.join(__dirname, '/../src');
-const dfltPort = 8000;
+'use strict'
+const path = require('path')
+const srcPath = path.join(__dirname, '/../src')
+const dfltPort = 8000
 function getDefaultModules() {
   return {
     preLoaders: [{
@@ -43,7 +43,7 @@ function getDefaultModules() {
         loader: 'json-loader'
       }
     ]
-  };
+  }
 }
 module.exports = {
   srcPath: srcPath,
@@ -55,6 +55,6 @@ module.exports = {
       require('autoprefixer')({
         browsers: ['last 2 versions']
       })
-    ];
+    ]
   }
-};
+}
