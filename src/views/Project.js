@@ -10,7 +10,7 @@ import {centerItem, inverseItem, setArrangeType} from '../actions/actions'
 let projectData = require('../data/projectData.json')
 
 // 利用自执行函数， 将图片名信息转成图片URL路径信息,projectData 转变为数组
-projectData = ((dataObj) => {
+projectData = ((dataObj)=> {
   let _arr = []
   for (let i = 0, length = dataObj.length; i < length; i++) {
     let singleData = dataObj[i]
@@ -29,33 +29,33 @@ function getRangeRandom(low, high) {
 
 class Project extends React.Component {
   constructor() {
-    super()
-    // 排列所需数据
-    this.Range = {
-      centerPos: {
+    super()  // 排列所需数据
+  this.Range = {
+    centerPos: {
+      left: 0,
+      top: 0
+    },
+    left: {   // 水平方向的取值范围
+      x: [0, 0],
+      y: [0, 0]
+    },
+    right: {    // 垂直方向的取值范围
+      x: [0, 0],
+      y: [0, 0]
+    },
+    circle: {
+      central: {
         left: 0,
         top: 0
       },
-      left: {   // 水平方向的取值范围
-        x: [0, 0],
-        y: [0, 0]
-      },
-      right: {    // 垂直方向的取值范围
-        x: [0, 0],
-        y: [0, 0]
-      },
-      circle: {
-        central: {
-          left: 0,
-          top: 0
-        },
-        angleRange: 0,
-        r: 0
-      },
-      width: 0,
-      height: 0
-    }
+      angleRange: 0,
+      r: 0
+    },
+    width: 0,
+    height: 0
   }
+  }
+
 
   /*
    * 翻转图片
@@ -75,8 +75,8 @@ class Project extends React.Component {
    */
   center(index) {
     return function () {
-      this.arrange(index);
-    }.bind(this);
+      this.arrange(index)
+    }.bind(this)
   }
 
   /**
@@ -165,13 +165,13 @@ class Project extends React.Component {
 
     // 布局左右两侧的图片
     for (let i = 0, length = _projectStateArr.length, meanNumber = length / 2; i < length; i++) {
-      let itemLeftPos = null;
+      let itemLeftPos = null
 
       // 前半部分布局左边， 右半部分布局右边
       if (i < meanNumber) {
-        itemLeftPos = this.Range.left;
+        itemLeftPos = this.Range.left
       } else {
-        itemLeftPos = this.Range.right;
+        itemLeftPos = this.Range.right
       }
 
       _projectStateArr[i] = {
@@ -247,7 +247,7 @@ class Project extends React.Component {
 
     let projects = []
 
-    projectData.forEach((value, index) => {
+    projectData.forEach((value, index)=> {
 
       if (!projectStateArr[index]) {
         projectStateArr[index] = {
@@ -262,14 +262,14 @@ class Project extends React.Component {
       }
 
       projects.push(<ProjectItem key={index} index={index} data={value} arrange={projectStateArr[index]}
-        center={this.center(index) } inverse={this.inverse(index) }
-        ref={'project' + index}/>);
+                                 center={this.center(index)} inverse={this.inverse(index)}
+                                 ref={'project' + index}/>)
 
     })
     return (
       <div>
         <div className="btn-switch-wrap">
-          <button className="btn-switch" onClick={this.handleBtnClick.bind(this) }>SWITCH MODE</button>
+          <button className="btn-switch" onClick={this.handleBtnClick.bind(this)}>SWITCH MODE</button>
         </div>
         <div className="stage" ref="stage">
           {projects}

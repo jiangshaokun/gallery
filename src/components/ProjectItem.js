@@ -13,8 +13,8 @@ class ProjectItem extends React.Component {
       this.props.center()
     }
 
-    e.stopPropagation();
-    e.preventDefault();
+    e.stopPropagation()
+    e.preventDefault()
   }
 
   render() {
@@ -23,13 +23,13 @@ class ProjectItem extends React.Component {
 
     // 如果props属性中指定了这张图片的位置，则使用
     if (this.props.arrange.pos) {
-      styleObj = this.props.arrange.pos;
+      styleObj = this.props.arrange.pos
     }
     // 如果图片的旋转角度有值并且不为0， 添加旋转角度
     if (this.props.arrange.rotate) {
       (['MozTransform', 'msTransform', 'WebkitTransform', 'transform']).forEach(function (value) {
-        styleObj[value] = 'rotate(' + this.props.arrange.rotate + 'deg)';
-      }.bind(this));
+        styleObj[value] = 'rotate(' + this.props.arrange.rotate + 'deg)'
+      }.bind(this))
     }
 
     // 如果是居中的图片， z-index设为99

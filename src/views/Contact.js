@@ -1,5 +1,5 @@
 require('styles/Contact.less')
-import React from 'react';
+import React from 'react'
 const qrCode = require('../images/wechat.jpg')
 
 class Contact extends React.Component {
@@ -14,7 +14,7 @@ class Contact extends React.Component {
           <img className="qrCode" src={qrCode} alt="微信二维码"/>
         </div>
       </section>
-    );
+    )
   }
 }
 
