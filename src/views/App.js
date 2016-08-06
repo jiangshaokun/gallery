@@ -9,9 +9,9 @@ class App extends React.Component {
     return (
       <div className="content">
         <ul className="nav">
-          <li><NavLink to="/about/" onlyActiveOnIndex>项目展示</NavLink></li>
-          <li><NavLink to="/about/resume">个人简历</NavLink></li>
-          <li><NavLink to="/about/contact">联系方式</NavLink></li>
+          <li><NavLink to="/" onlyActiveOnIndex>项目展示</NavLink></li>
+          <li><NavLink to="/resume">个人简历</NavLink></li>
+          <li><NavLink to="/contact">联系方式</NavLink></li>
         </ul>
         {this.props.children}
       </div>

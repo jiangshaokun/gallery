@@ -16,11 +16,11 @@ const store = createStore(reducer)
 ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/about/" component={App}>
+      <Route path="/" component={App}>
         <IndexRoute component={Project}/>
-        <Route path="/about/project" component={Project}/>
-        <Route path="/about/resume" component={Resume}/>
-        <Route path="/about/contact" component={Contact}/>
+        <Route path="/project" component={Project}/>
+        <Route path="/resume" component={Resume}/>
+        <Route path="/contact" component={Contact}/>
       </Route>
     </Router>
   </Provider>
