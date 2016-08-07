@@ -5,8 +5,7 @@ class ProjectItem extends React.Component {
   /*
    * imgFigure 的点击处理函数
    */
-  handleClick(e) {
-
+  handleClick (e) {
     if (this.props.arrange.isCenter) {
       this.props.inverse()
     } else {
@@ -17,7 +16,7 @@ class ProjectItem extends React.Component {
     e.preventDefault()
   }
 
-  render() {
+  render () {
     let styleObj = {}
     let projectClassName = 'project-item'
 
@@ -42,18 +41,24 @@ class ProjectItem extends React.Component {
 
     return (
       <figure className={projectClassName} style={styleObj} onClick={this.handleClick.bind(this)}>
-        <img className="project-photo" src={this.props.data.imageURL} alt={this.props.data.title}/>
+        <img className='project-photo' src={this.props.data.imageURL} alt={this.props.data.title} />
         <figcaption>
-          <h3 className="project-title">{this.props.data.title}</h3>
-
-          <div className="project-back" onClick={this.handleClick.bind(this)}>
-            <p>涉及技术: {this.props.data.dev}</p>
-            <p>负责部分: {this.props.data.work}</p>
-            <p>项目地址: </p>
-            <img src={this.props.data.qrCode} alt={this.props.data.title}/>
+          <h3 className='project-title'>{this.props.data.title}</h3>
+          <div className='project-back' onClick={this.handleClick.bind(this)}>
+            <p>
+              涉及技术:
+              {this.props.data.dev}
+            </p>
+            <p>
+              负责部分:
+              {this.props.data.work}
+            </p>
+            <p>
+              项目地址:
+            </p>
+            <img src={this.props.data.qrCode} alt={this.props.data.title} />
           </div>
         </figcaption>
-
       </figure>
     )
   }

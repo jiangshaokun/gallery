@@ -4,13 +4,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ProjectItem from '../components/ProjectItem'
 
-import {connect} from 'react-redux'
-import {centerItem, inverseItem, setArrangeType} from '../actions/actions'
+import { connect } from 'react-redux'
+import { centerItem, inverseItem, setArrangeType } from '../actions/actions'
 
 let projectData = require('../data/projectData.json')
 
 // 利用自执行函数， 将图片名信息转成图片URL路径信息,projectData 转变为数组
-projectData = ((dataObj)=> {
+projectData = ((dataObj) => {
   let _arr = []
   for (let i = 0, length = dataObj.length; i < length; i++) {
     let singleData = dataObj[i]
@@ -19,50 +19,48 @@ projectData = ((dataObj)=> {
     _arr[i] = singleData
   }
   return _arr
-
 })(projectData)
 
-//随机生成一个值
-function getRangeRandom(low, high) {
+// 随机生成一个值
+function getRangeRandom (low, high) {
   return Math.ceil(Math.random() * (high - low) + low)
 }
 
 class Project extends React.Component {
-  constructor() {
-    super()  // 排列所需数据
-  this.Range = {
-    centerPos: {
-      left: 0,
-      top: 0
-    },
-    left: {   // 水平方向的取值范围
-      x: [0, 0],
-      y: [0, 0]
-    },
-    right: {    // 垂直方向的取值范围
-      x: [0, 0],
-      y: [0, 0]
-    },
-    circle: {
-      central: {
+  constructor () {
+    super() // 排列所需数据
+    this.Range = {
+      centerPos: {
         left: 0,
         top: 0
       },
-      angleRange: 0,
-      r: 0
-    },
-    width: 0,
-    height: 0
+      left: { // 水平方向的取值范围
+        x: [0, 0],
+        y: [0, 0]
+      },
+      right: { // 垂直方向的取值范围
+        x: [0, 0],
+        y: [0, 0]
+      },
+      circle: {
+        central: {
+          left: 0,
+          top: 0
+        },
+        angleRange: 0,
+        r: 0
+      },
+      width: 0,
+      height: 0
+    }
   }
-  }
-
 
   /*
    * 翻转图片
    * @param index 传入执行inverse操作的对应的项目状态数组的index值
    * @returns {Function} 这是一个闭包函数, 其内return一个真正待被执行的函数
    */
-  inverse(index) {
+  inverse (index) {
     return function () {
       this.props.dispatch(inverseItem(index)) // todo
     }.bind(this)
@@ -73,7 +71,7 @@ class Project extends React.Component {
    * @param index 需要被居中的对应的项目数组的index值
    * @returns {Function}
    */
-  center(index) {
+  center (index) {
     return function () {
       this.arrange(index)
     }.bind(this)
@@ -83,7 +81,7 @@ class Project extends React.Component {
    * 布局所有项目
    * @param index 中心项目索引
    */
-  arrange(index) {
+  arrange (index) {
     switch (this.props.arrangeType) {
       case 'circle':
         this.arrangeCircle(index)
@@ -97,7 +95,7 @@ class Project extends React.Component {
    * 圆形布局
    * @param centerIndex 中心项目索引
    */
-  arrangeCircle(centerIndex) {
+  arrangeCircle (centerIndex) {
     let _projectStateArr = new Array(projectData.length) // 项目数据数组长度的新数组
     let projectCenterArr = _projectStateArr.splice(centerIndex, 1) // 从数组中剔除中心项
     const PI = Math.PI
@@ -144,14 +142,13 @@ class Project extends React.Component {
 
     _projectStateArr.splice(centerIndex, 0, projectCenterArr[0]) // 将中心项还原回数组
     this.props.dispatch(centerItem(_projectStateArr)) // todo
-
   }
 
   /**
    * 散列布局
    * @param centerIndex 中心项目索引
    */
-  arrangeHash(centerIndex) {
+  arrangeHash (centerIndex) {
     let _projectStateArr = new Array(projectData.length) // 项目数据数组长度的新数组
     let projectCenterArr = _projectStateArr.splice(centerIndex, 1) // 从数组中剔除中心项
 
@@ -187,10 +184,9 @@ class Project extends React.Component {
 
     _projectStateArr.splice(centerIndex, 0, projectCenterArr[0]) // 将中心项还原回数组
     this.props.dispatch(centerItem(_projectStateArr)) // todo
-
   }
 
-  handleBtnClick(e) {
+  handleBtnClick (e) {
     switch (this.props.arrangeType) {
       case 'circle':
         this.props.dispatch(setArrangeType('hash'))
@@ -204,7 +200,7 @@ class Project extends React.Component {
     e.preventDefault()
   }
 
-  componentDidMount() {
+  componentDidMount () {
     // 首先拿到舞台的大小
     let stageDOM = ReactDOM.findDOMNode(this.refs.stage)
     let stageW = stageDOM.clientWidth
@@ -241,13 +237,13 @@ class Project extends React.Component {
     this.arrange(0)
   }
 
-  render() {
+  render () {
     // 通过调用 connect() 注入:
     const {projectStateArr} = this.props // todo
 
     let projects = []
 
-    projectData.forEach((value, index)=> {
+    projectData.forEach((value, index) => {
 
       if (!projectStateArr[index]) {
         projectStateArr[index] = {
@@ -261,22 +257,27 @@ class Project extends React.Component {
         }
       }
 
-      projects.push(<ProjectItem key={index} index={index} data={value} arrange={projectStateArr[index]}
-                                 center={this.center(index)} inverse={this.inverse(index)}
-                                 ref={'project' + index}/>)
-
+      projects.push(<ProjectItem
+                      key={index}
+                      index={index}
+                      data={value}
+                      arrange={projectStateArr[index]}
+                      center={this.center(index)}
+                      inverse={this.inverse(index)}
+                      ref={'project' + index} />)
     })
     return (
       <div>
-        <div className="btn-switch-wrap">
-          <button className="btn-switch" onClick={this.handleBtnClick.bind(this)}>SWITCH MODE</button>
+        <div className='btn-switch-wrap'>
+          <button className='btn-switch' onClick={this.handleBtnClick.bind(this)}>
+            SWITCH MODE
+          </button>
         </div>
-        <div className="stage" ref="stage">
+        <div className='stage' ref='stage'>
           {projects}
         </div>
       </div>
     )
-
   }
 }
 
@@ -284,7 +285,7 @@ Project.defaultProps = {}
 
 // 基于全局 state ，哪些是我们想注入的 props ?
 // 注意：使用 https://github.com/reactjs/reselect 效果更佳。 // todo
-function select(state) {
+function select (state) {
   return {
     arrangeType: state.arrangeType,
     projectStateArr: state.projectStateArr
