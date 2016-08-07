@@ -11,7 +11,6 @@ import reducer from './reducers/reducers'
 import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 
 const store = createStore(reducer)
-console.log('gg')
 // Render the main component into the dom
 ReactDOM.render((
   <Provider store={store}>
