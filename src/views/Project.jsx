@@ -3,7 +3,6 @@ require('styles/Project.less')
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ProjectItem from '../components/ProjectItem'
-
 import { connect } from 'react-redux'
 import { centerItem, inverseItem, setArrangeType } from '../actions/actions'
 
@@ -12,12 +11,14 @@ let projectData = require('../data/projectData.json')
 // 利用自执行函数， 将图片名信息转成图片URL路径信息,projectData 转变为数组
 projectData = ((dataObj) => {
   let _arr = []
+
   for (let i = 0, length = dataObj.length; i < length; i++) {
     let singleData = dataObj[i]
     singleData.imageURL = require('../images/' + singleData.projectImg)
     singleData.qrCode = require('../images/' + singleData.qrCode)
     _arr[i] = singleData
   }
+
   return _arr
 })(projectData)
 
@@ -122,6 +123,7 @@ class Project extends React.Component {
       let _rotate = i * angleRange / (length - 1) - 90
       let _left
       let _top
+
       if (_rotate > 0) {
         _left = central.left + width / 2 + r * Math.abs(Math.cos(2 * PI / 360 * (90 - _rotate)))
         _top = central.top + height / 2 - r * Math.abs(Math.sin(2 * PI / 360 * (90 - _rotate)))
@@ -240,11 +242,9 @@ class Project extends React.Component {
   render () {
     // 通过调用 connect() 注入:
     const {projectStateArr} = this.props // todo
-
     let projects = []
 
     projectData.forEach((value, index) => {
-
       if (!projectStateArr[index]) {
         projectStateArr[index] = {
           pos: {
@@ -258,14 +258,15 @@ class Project extends React.Component {
       }
 
       projects.push(<ProjectItem
-                      key={index}
-                      index={index}
-                      data={value}
-                      arrange={projectStateArr[index]}
-                      center={this.center(index)}
-                      inverse={this.inverse(index)}
-                      ref={'project' + index} />)
+        key={index}
+        index={index}
+        data={value}
+        arrange={projectStateArr[index]}
+        center={this.center(index)}
+        inverse={this.inverse(index)}
+        ref={'project' + index} />)
     })
+
     return (
       <div>
         <div className='btn-switch-wrap'>

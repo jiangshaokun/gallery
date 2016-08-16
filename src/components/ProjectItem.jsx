@@ -1,7 +1,6 @@
 import React from 'react'
 
 class ProjectItem extends React.Component {
-
   /*
    * imgFigure 的点击处理函数
    */
@@ -24,6 +23,7 @@ class ProjectItem extends React.Component {
     if (this.props.arrange.pos) {
       styleObj = this.props.arrange.pos
     }
+
     // 如果图片的旋转角度有值并且不为0， 添加旋转角度
     if (this.props.arrange.rotate) {
       (['MozTransform', 'msTransform', 'WebkitTransform', 'transform']).forEach(function (value) {
