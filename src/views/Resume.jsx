@@ -40,7 +40,7 @@ class Resume extends React.Component {
         <div className='menu experience'>
           <div className='experience-item'>
             <div className='company-wrapper'>
-              <span><a className='company-link' href='http://meiriq.com/' target='_blank'>每日Q游戏</a></span>
+              <span><a className='company-link' href='http://meiriq.com/' target='_blank'>兔展</a></span>
               <span>2015.07 - 2016.08</span>
               <span>前端工程师</span>
             </div>
@@ -55,7 +55,7 @@ class Resume extends React.Component {
           </div>
           <div className='experience-item'>
             <div className='company-wrapper'>
-              <span><a className='company-link' href='http://www.rabbitpre.com/' target='_blank'>兔展</a></span>
+              <span><a className='company-link' href='http://www.rabbitpre.com/' target='_blank'>形点网络</a></span>
               <span>2016.09 - 现在</span>
               <span>前端工程师</span>
             </div>
