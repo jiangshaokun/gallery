@@ -3,7 +3,7 @@ require('styles/Resume.less')
 import React from 'react'
 
 class Resume extends React.Component {
-  render () {
+  static render () {
     return (
       <section className='resume'>
         <h1 className='my-name'>江绍坤</h1>
@@ -41,7 +41,7 @@ class Resume extends React.Component {
           <div className='experience-item'>
             <div className='company-wrapper'>
               <span><a className='company-link' href='http://www.rabbitpre.com/' target='_blank'>兔展</a></span>
-              <span>2015.07 - 2016.08</span>
+              <span>2015.07 - 2016.09</span>
               <span>前端工程师</span>
             </div>
             <ul className='work-content'>
@@ -49,7 +49,7 @@ class Resume extends React.Component {
                 H5 游戏开发
               </li>
               <li>
-                H5 定制项目前端以及后台开发
+                H5 定制项目前端以及后端开发
               </li>
             </ul>
           </div>

@@ -10,8 +10,13 @@ class App extends React.Component {
       <div className='content'>
         <ul className='nav'>
           <li>
-            <NavLink to='/' onlyActiveOnIndex>
-              项目展示
+            <NavLink to='/tuzhan' onlyActiveOnIndex>
+              兔展项目
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/xingdian'>
+              形点项目
             </NavLink>
           </li>
           <li>
@@ -31,7 +36,6 @@ class App extends React.Component {
   }
 }
 
-App.defaultProps = {
-}
+App.defaultProps = {}
 
 export default App

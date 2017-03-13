@@ -1,4 +1,4 @@
-require('styles/Project.less')
+require('styles/TuZhan.less')
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -293,6 +293,6 @@ function select (state) {
   }
 }
 
-const ConnectedProject = connect(select)(Project)
+const TuZhan = connect(select)(Project)
 
-export default ConnectedProject
+export default TuZhan
