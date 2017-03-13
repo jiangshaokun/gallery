@@ -3,7 +3,7 @@ require('styles/Resume.less')
 import React from 'react'
 
 class Resume extends React.Component {
-  static render () {
+  render () {
     return (
       <section className='resume'>
         <h1 className='my-name'>江绍坤</h1>

@@ -3,7 +3,7 @@ require('styles/XingDian.less')
 import React from 'react'
 
 class XingDian extends React.Component {
-  static render () {
+  render () {
     return (
       <section className='xingdian'>
         <ul>
