@@ -15,13 +15,8 @@ class App extends React.Component {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/xingdian'>
-              形点项目
-            </NavLink>
-          </li>
-          <li>
             <NavLink to='/resume'>
-              个人简历
+              关于
             </NavLink>
           </li>
           <li>

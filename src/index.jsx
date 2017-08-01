@@ -3,7 +3,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './views/App'
 import TuZhan from './views/TuZhan'
-import XingDian from './views/XingDian'
 import Resume from './views/Resume'
 import Contact from './views/Contact'
 import {createStore} from 'redux'
@@ -20,7 +19,6 @@ ReactDOM.render((
       <Route path='/' component={App}>
         <IndexRoute component={TuZhan}/>
         <Route path='/tuzhan' component={TuZhan}/>
-        <Route path='/xingdian' component={XingDian}/>
         <Route path='/resume' component={Resume}/>
         <Route path='/contact' component={Contact}/>
       </Route>
