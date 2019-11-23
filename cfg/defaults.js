@@ -47,7 +47,7 @@ function getDefaultModules() {
 }
 module.exports = {
   srcPath: srcPath,
-  publicPath: '/assets/',
+  publicPath: 'https://jiangshaokun.github.io/gallery/assets/',
   port: dfltPort,
   getDefaultModules: getDefaultModules,
   postcss: function () {

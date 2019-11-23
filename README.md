@@ -12,3 +12,5 @@
 
 ## 发布
 `npm run build`
+
+需手动修改 `dist/` 目录下 index.html 的 `<script>` 的 `src` 为绝对路径
