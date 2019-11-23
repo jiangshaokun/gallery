@@ -47,16 +47,16 @@ class ProjectItem extends React.Component {
           <div className='project-back' onClick={this.handleClick.bind(this)}>
             <p>
               涉及技术:
+            </p>
+            <p>
               {this.props.data.dev}
             </p>
             <p>
               负责部分:
-              {this.props.data.work}
             </p>
             <p>
-              项目地址:
+              {this.props.data.work}
             </p>
-            <img src={this.props.data.qrCode} alt={this.props.data.title} />
           </div>
         </figcaption>
       </figure>

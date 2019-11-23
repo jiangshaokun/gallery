@@ -1,5 +1,5 @@
 require('normalize.css/normalize.css')
-require('styles/App.less')
+require('styles/app.less')
 
 import React from 'react'
 import NavLink from '../components/NavLink'
@@ -10,18 +10,13 @@ class App extends React.Component {
       <div className='content'>
         <ul className='nav'>
           <li>
-            <NavLink to='/tuzhan' onlyActiveOnIndex>
-              兔展项目
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/resume'>
-              关于
+            <NavLink to='/gallery' onlyActiveOnIndex>
+              画廊
             </NavLink>
           </li>
           <li>
             <NavLink to='/contact'>
-              联系方式
+              更多
             </NavLink>
           </li>
         </ul>

@@ -2,8 +2,7 @@ import 'core-js/fn/object/assign'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './views/App'
-import TuZhan from './views/TuZhan'
-import Resume from './views/Resume'
+import Gallery from './views/Gallery.jsx'
 import Contact from './views/Contact'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
@@ -17,9 +16,8 @@ ReactDOM.render((
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path='/' component={App}>
-        <IndexRoute component={TuZhan}/>
-        <Route path='/tuzhan' component={TuZhan}/>
-        <Route path='/resume' component={Resume}/>
+        <IndexRoute component={Gallery}/>
+        <Route path='/gallery' component={Gallery}/>
         <Route path='/contact' component={Contact}/>
       </Route>
     </Router>

@@ -1,4 +1,4 @@
-require('styles/TuZhan.less')
+require('styles/gallery.less')
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -15,7 +15,6 @@ projectData = ((dataObj) => {
   for (let i = 0, length = dataObj.length; i < length; i++) {
     let singleData = dataObj[i]
     singleData.imageURL = require('../images/' + singleData.projectImg)
-    singleData.qrCode = require('../images/' + singleData.qrCode)
     _arr[i] = singleData
   }
 
@@ -293,6 +292,6 @@ function select (state) {
   }
 }
 
-const TuZhan = connect(select)(Project)
+const Gallery = connect(select)(Project)
 
-export default TuZhan
+export default Gallery
